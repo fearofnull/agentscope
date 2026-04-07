@@ -1620,32 +1620,39 @@ classDiagram
 ### 21.1 设计模式一览
 
 ```mermaid
-mindmap
-  root((AgentScope<br/>设计模式))
-    抽象工厂
-      ChatModelBase → 多种模型实现
-      FormatterBase → 多种格式化器
-      MemoryBase → 多种存储后端
-    策略模式
-      Formatter 策略
-      TokenCounter 策略
-      EmbeddingCache 策略
-    观察者模式
-      MsgHub 发布-订阅
-      Agent 订阅者机制
-      Hook 系统
-    装饰器模式
-      Tracing 装饰器
-      Middleware 中间件链
-    状态模式
-      StateModule 状态管理
-      Plan/SubTask 状态机
-    模板方法
-      AgentBase.reply()
-      ReActAgentBase._reasoning()/_acting()
-    组合模式
-      StateModule 嵌套
-      Pipeline 组合
+graph LR
+    ROOT((AgentScope<br/>设计模式))
+
+    ROOT --- P1[抽象工厂]
+    P1 --- P1A[ChatModelBase → 多种模型实现]
+    P1 --- P1B[FormatterBase → 多种格式化器]
+    P1 --- P1C[MemoryBase → 多种存储后端]
+
+    ROOT --- P2[策略模式]
+    P2 --- P2A[Formatter 策略]
+    P2 --- P2B[TokenCounter 策略]
+    P2 --- P2C[EmbeddingCache 策略]
+
+    ROOT --- P3[观察者模式]
+    P3 --- P3A[MsgHub 发布-订阅]
+    P3 --- P3B[Agent 订阅者机制]
+    P3 --- P3C[Hook 系统]
+
+    ROOT --- P4[装饰器模式]
+    P4 --- P4A[Tracing 装饰器]
+    P4 --- P4B[Middleware 中间件链]
+
+    ROOT --- P5[状态模式]
+    P5 --- P5A[StateModule 状态管理]
+    P5 --- P5B[Plan/SubTask 状态机]
+
+    ROOT --- P6[模板方法]
+    P6 --- P6A["AgentBase.reply()"]
+    P6 --- P6B["ReActAgentBase._reasoning()/_acting()"]
+
+    ROOT --- P7[组合模式]
+    P7 --- P7A[StateModule 嵌套]
+    P7 --- P7B[Pipeline 组合]
 ```
 
 ### 21.2 核心设计原则
